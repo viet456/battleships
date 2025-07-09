@@ -101,12 +101,12 @@ describe('createGameboard', () => {
             gameboard.receiveAttack(5, 5)
             expect(board[5][5]).toBe('miss');
         })
+        test('Prevent attacks outside of grid', () => {
+            expect(gameboard.receiveAttack(-1, 1)).toEqual({ status: 'out_of_bounds', message: `Attack at (-1, 1) is outside the grid.` });
+        })
         test('Block duplicate attack locations', () => {
             gameboard.receiveAttack(1, 1);
-            expect(() => gameboard.receiveAttack(1, 1)).toThrow('Cannot attack same location');
-        })
-        test('Prevent attacks outside of grid', () => {
-            expect(() => gameboard.receiveAttack(-1, 1)).toThrow('Cannot attack outside of grid');
+            expect(gameboard.receiveAttack(1, 1)).toEqual({ status: 'duplicate', message: `Location (1, 1) already attacked.` });
         })
     })
 

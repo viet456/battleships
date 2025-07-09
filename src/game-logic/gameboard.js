@@ -46,12 +46,12 @@ export function createGameboard(size = 10) {
         },
         receiveAttack: function (row, col) {
             if (row < 0 || row > boardSize || col < 0 || col > boardSize) {
-                throw new Error('Cannot attack outside of grid')
+                return { status: 'out_of_bounds', message: `Attack at (${row}, ${col}) is outside the grid.` };
             }
             const cell = board[row][col];
             const coordKey = `${row}, ${col}`;
             if (attackedCoordinates.has(coordKey)) {
-                throw new Error('Cannot attack same location');
+                return { status: 'duplicate', message: `Location (${row}, ${col}) already attacked.` };
             }
             attackedCoordinates.add(coordKey);
             if (cell && typeof cell === 'object' && cell.ship) {
