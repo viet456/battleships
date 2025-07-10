@@ -5,19 +5,16 @@ import * as LayoutModule from '../ui/layout.js';
 describe("Game Manager's UI Initialization", () => {
     let appRoot;
     let layoutSpy;
+    let mockLayoutElements;
     beforeEach(() => {
         appRoot = document.createElement('div');
         appRoot.id = 'app';
         document.body.appendChild(appRoot);
 
-        const mockLayoutElements = {
+        mockLayoutElements = {
             startScreen: document.createElement('div'),
             gameplayScreen: document.createElement('div'),
             gameOverScreen: document.createElement('div'),
-            player1BoardContainer: document.createElement('div'),
-            player2BoardContainer: document.createElement('div'),
-            resetButton: document.createElement('button'),
-            startGameButton: document.createElement('button'), 
         };
         mockLayoutElements.startScreen.classList.add('game-screen');
         mockLayoutElements.gameplayScreen.classList.add('game-screen', 'hidden'); 

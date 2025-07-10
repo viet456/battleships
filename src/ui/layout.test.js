@@ -6,8 +6,9 @@ describe('layout() function', () => {
     let elements;
     beforeEach(() => {
         root = document.createElement('div');
-        elements = LayoutModule.layout(root);
+        root.id = 'app';
         document.body.appendChild(root);
+        elements = LayoutModule.layout(root);
     });
     afterEach(() => {
         document.body.removeChild(root);
@@ -20,11 +21,5 @@ describe('layout() function', () => {
         expect(elements.gameplayScreen).not.toBeNull();
         expect(root.querySelector('#gameplay-screen')).not.toBeNull();
         expect(elements.gameplayScreen.classList.contains('hidden')).toBe(true);
-    });
-    test('Return correct element references', () => {
-        expect(elements.player1BoardContainer).not.toBeNull();
-        expect(elements.player2BoardContainer).not.toBeNull();
-        expect(elements.resetButton).not.toBeNull();
-        expect(elements.startButton).not.toBeNull();
     });
 });

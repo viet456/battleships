@@ -1,5 +1,9 @@
 import { layout } from "../ui/layout";
-// switch screen in view
+import * as StartScreenModule from "../ui/screens/start/startScreen";
+
+let startScreen;
+let gameplayScreen;
+let gameOverScreen;
 let currentScreen;
 function showScreen(screenElement) {
     if (currentScreen) {
@@ -11,6 +15,11 @@ function showScreen(screenElement) {
 
 export function initializeGame() {
     // create the UI elements
-    const { startScreen, gameplayScreen, gameOverScreen, player1BoardContainer, player2BoardContainer, resetButton } = layout(document.getElementById('app'));
-    showScreen(startScreen);
+    const { startScreen, gameplayScreen, gameOverScreen } = layout(document.getElementById('app'));
+    StartScreenModule.createStartScreen(startScreen, startGame);
+    currentScreen = startScreen;
+}
+
+function startGame() {
+    showScreen(gameplayScreen);
 }
