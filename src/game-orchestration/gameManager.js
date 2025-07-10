@@ -15,7 +15,7 @@ function showScreen(screenElement) {
 
 export function initializeGame() {
     // create the UI elements
-    const { startScreen, gameplayScreen, gameOverScreen } = layout(document.getElementById('app'));
+    ({ startScreen, gameplayScreen, gameOverScreen } = layout(document.getElementById('app')));
     StartScreenModule.createStartScreen(startScreen, startGame);
     currentScreen = startScreen;
 }
