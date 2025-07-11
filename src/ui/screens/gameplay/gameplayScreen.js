@@ -1,4 +1,6 @@
-export function createGameplayScreen(containerElement, playGameCallback) {
+import { renderBoard } from "../../components/boardRender";
+
+export function createGameplayScreen(containerElement, playerBoard, computerBoard, playGameCallback = null) {
     containerElement.innerHTML = `
         <section class="game-boards">
             <div class='ship-port'></div>
@@ -8,16 +10,19 @@ export function createGameplayScreen(containerElement, playGameCallback) {
         </section>
     `;
     const shipPort = containerElement.querySelector('.ship-port');
-    const ownBoard = containerElement.querySelector('#player-board');
-    const computerBoard = containerElement.querySelector('#computer-board');
+    const playerBoardContainer = containerElement.querySelector('#player-board');
+    const computerBoardContainer = containerElement.querySelector('#computer-board');
     const playBtn = containerElement.querySelector('#play-btn');
     if (playGameCallback) {
         playBtn.addEventListener('click', playGameCallback);
     }
+    renderBoard(playerBoardContainer, playerBoard);
+    renderBoard(computerBoardContainer, computerBoard);
+
     return {
         shipPort: shipPort,
-        ownBoard: ownBoard,
-        computerBoard: computerBoard,
+        playerBoardContainer: playerBoardContainer,
+        computerBoardContainer: computerBoardContainer,
         playBtn: playBtn,
     }
 }
