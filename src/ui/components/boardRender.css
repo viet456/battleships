@@ -1,0 +1,14 @@
+.game-board {
+    display: grid;
+    grid-template-columns: repeat(var(--grid-cols), 1fr);
+    grid-template-rows: repeat(var(--grid-rows), 1fr);
+    gap: var(--spacing-xs);
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-gridline);
+}
+
+.board-cell {
+    box-sizing: border-box;
+    background-color: var(--color-secondary);
+}

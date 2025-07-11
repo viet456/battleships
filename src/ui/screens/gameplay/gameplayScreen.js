@@ -1,19 +1,23 @@
 import { renderBoard } from "../../components/boardRender";
+import './gameplayScreen.css';
 
 export function createGameplayScreen(containerElement, playerBoard, computerBoard, playGameCallback = null) {
     containerElement.innerHTML = `
-        <section class="game-boards">
+        <div class='gameplay-screen-content'>
             <div class='ship-port'></div>
-            <div id='player-board'></div>
-            <div id='computer-board'></div>
+            <section class="game-boards">
+                <div id='player-board'></div>
+                <div id='computer-board' class='hidden'></div>
+            </section>
             <button id='play-btn'>Begin play</button>
-        </section>
+        </div>
     `;
     const shipPort = containerElement.querySelector('.ship-port');
     const playerBoardContainer = containerElement.querySelector('#player-board');
     const computerBoardContainer = containerElement.querySelector('#computer-board');
     const playBtn = containerElement.querySelector('#play-btn');
     if (playGameCallback) {
+        computerBoardContainer.classList.remove('hidden');
         playBtn.addEventListener('click', playGameCallback);
     }
     renderBoard(playerBoardContainer, playerBoard);

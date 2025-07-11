@@ -9,6 +9,7 @@ describe('boardRender', () => {
         const board = new Array(size).fill(null).map(() => new Array(size).fill(null))
         return {
             getBoard: () => board,
+            getSize: () => size,
         };
     }
     beforeEach(() => {

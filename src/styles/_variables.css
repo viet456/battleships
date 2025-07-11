@@ -1,18 +1,20 @@
 :root {
   /* Colors */
   --color-primary: #007bff;
-  --color-secondary: #6c757d;
+  --color-secondary: #bbc1c6;
   --color-background: #f8f9fa;
   --color-text: #333;
   --color-hit: #dc3545;
-  --color-miss: #007bff; 
-  --color-ship: #6c757d; 
+  --color-miss: #007bff;
+  --color-ship: #6c757d;
+  --color-gridline: #6c757d;
 
   /* Spacing */
   --spacing-unit: 8px;
-  --spacing-sm: calc(var(--spacing-unit) * 1);
-  --spacing-md: calc(var(--spacing-unit) * 2);
-  --spacing-lg: calc(var(--spacing-unit) * 3);
+  --spacing-xs: calc(var(--spacing-unit) * .5);
+  --spacing-s: calc(var(--spacing-unit) * 1);
+  --spacing-m: calc(var(--spacing-unit) * 2);
+  --spacing-l: calc(var(--spacing-unit) * 3);
 
   /* Font Sizes */
   --font-size-s: 0.75rem;
